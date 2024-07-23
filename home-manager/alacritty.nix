@@ -4,13 +4,16 @@ let
     inherit pkgs;
     inherit lib;
   };
-in {
+in
+{
   programs.alacritty = {
     enable = true;
     package = (helpers.nixGLMesaWrap pkgs.alacritty);
     settings = {
       env.TERM = "xterm-256color";
-      shell = { program = "tmux"; };
+      shell = {
+        program = "tmux";
+      };
       font = {
         normal = {
           family = "CaskaydiaCove Nerd Font";

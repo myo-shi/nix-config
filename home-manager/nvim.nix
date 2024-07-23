@@ -1,10 +1,10 @@
-
-{ pkgsUnstable, ... }: {
+{ pkgs, ... }:
+{
   programs.neovim = {
     enable = true;
     viAlias = false;
     vimAlias = true;
-    package = pkgsUnstable.neovim-unwrapped;
+    package = pkgs.unstable.neovim-unwrapped;
   };
 
   xdg.configFile.nvim = {
