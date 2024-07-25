@@ -2,8 +2,6 @@
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
   inputs,
-  lib,
-  config,
   pkgs,
   outputs,
   ...
@@ -24,6 +22,7 @@
     # You can add overlays here
     overlays = [
       # Add overlays your own flake exports (from overlays and pkgs dir):
+      outputs.overlays.additions
       outputs.overlays.modifications
       outputs.overlays.unstable-packages
       # If you want to use overlays exported from other flakes:
@@ -57,9 +56,20 @@
     nixfmt-rfc-style
     starship
     unstable.vscode
+    unstable.fnm
+    cascadia-code
+    fira-code
+    fira-code-symbols
+
+    hello_nix
 
     # Patching nerdfonts
-    (pkgs.nerdfonts.override { fonts = [ "CascadiaCode" ]; })
+    (nerdfonts.override {
+      fonts = [
+        "CascadiaCode"
+        "FiraCode"
+      ];
+    })
   ];
 
   # Enable home-manager and git
@@ -70,6 +80,16 @@
     extraConfig = {
       pull.rebase = true;
     };
+  };
+
+  # fnm settings
+  xdg.configFile."fish/conf.d/fnm.fish" = {
+    text =
+      "fnm env --corepack-enabled"
+      + " --version-file-strategy=recursive"
+      + " --use-on-cd"
+      + " --resolve-engines"
+      + " | source";
   };
 
   # Nicely reload system units when changing configs
