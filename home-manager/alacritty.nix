@@ -27,7 +27,7 @@ in
           family = "CaskaydiaCove Nerd Font";
           style = "Italic";
         };
-        size = 13;
+        size = 13.5;
         offset = {
           x = 1;
           y = 0;
@@ -36,7 +36,7 @@ in
       };
       window = {
         padding = {
-          x = 0;
+          x = 1;
           y = 0;
         };
         dynamic_padding = true;
