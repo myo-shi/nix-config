@@ -10,7 +10,6 @@ stdenv.mkDerivation {
   '';
 
   installPhase = ''
-    echo $out
     mkdir -p $out/bin
     cp hello_nix  $out/bin/hello_nix
   '';

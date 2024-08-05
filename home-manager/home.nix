@@ -62,6 +62,7 @@
     fira-code-symbols
 
     hello_nix
+    better-adb-sync
 
     # Patching nerdfonts
     (nerdfonts.override {
