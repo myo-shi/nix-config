@@ -13,7 +13,7 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    ./nvim.nix
+    # ./nvim.nix
     ./alacritty.nix
     ./tmux.nix
   ];
@@ -55,8 +55,7 @@
     tmux
     nixfmt-rfc-style
     starship
-    unstable.vscode
-    unstable.fnm
+    # unstable.fnm
     cascadia-code
     fira-code
     fira-code-symbols
@@ -69,6 +68,7 @@
       fonts = [
         "CascadiaCode"
         "FiraCode"
+        "JetBrainsMono"
       ];
     })
   ];
@@ -78,20 +78,27 @@
   programs.git = {
     enable = true;
     userName = "myo";
+    userEmail = "myoshi.dev@gmail.com";
     extraConfig = {
       pull.rebase = true;
     };
   };
 
-  # fnm settings
-  xdg.configFile."fish/conf.d/fnm.fish" = {
-    text =
-      "fnm env --corepack-enabled"
-      + " --version-file-strategy=recursive"
-      + " --use-on-cd"
-      + " --resolve-engines"
-      + " | source";
+  programs.direnv = {
+    enable = true;
+    enableFishIntegration = true;
+    nix-direnv.enable = true;
   };
+
+  # fnm settings
+  # xdg.configFile."fish/conf.d/fnm.fish" = {
+  #   text =
+  #     "fnm env --corepack-enabled"
+  #     + " --version-file-strategy=recursive"
+  #     + " --use-on-cd"
+  #     + " --resolve-engines"
+  #     + " | source";
+  # };
 
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";

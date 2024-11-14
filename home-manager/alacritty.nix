@@ -16,15 +16,15 @@ in
       };
       font = {
         normal = {
-          family = "CaskaydiaCove Nerd Font";
+          family = "FiraCode Nerd Font";
           style = "Regular";
         };
         bold = {
-          family = "CaskaydiaCove Nerd Font";
+          family = "FiraCode Nerd Font";
           style = "Bold";
         };
         italic = {
-          family = "CaskaydiaCove Nerd Font";
+          family = "FiraCode Nerd Font";
           style = "Italic";
         };
         size = 13.5;
