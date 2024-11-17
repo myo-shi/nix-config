@@ -2,14 +2,13 @@
 {
   programs.neovim = {
     enable = true;
-    viAlias = true;
+    viAlias = false;
     vimAlias = true;
     package = pkgs.unstable.neovim-unwrapped;
   };
 
   xdg.configFile."nvim" = {
-    source = config.lib.file.mkOutOfStoreSymlink
-      "${config.home.homeDirectory}/workspace/nix-config/dotfiles/nvim";
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/workspace/nix-config/dotfiles/nvim";
     recursive = true;
   };
 

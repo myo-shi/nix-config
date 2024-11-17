@@ -13,6 +13,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixgl.url = "github:nix-community/nixGL";
+
+    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -23,6 +25,7 @@
       nix-darwin,
       home-manager,
       nixgl,
+      catppuccin,
       ...
     }@inputs:
     let
@@ -79,7 +82,7 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "myo@um790pro-arch" = home-manager.lib.homeManagerConfiguration {
+        "arch" = home-manager.lib.homeManagerConfiguration {
           pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
           extraSpecialArgs = {
             inherit inputs outputs;
@@ -88,6 +91,19 @@
           modules = [
             { targets.genericLinux.enable = true; }
             ./home-manager/home.nix
+            catppuccin.homeManagerModules.catppuccin
+          ];
+        };
+
+        "florida" = home-manager.lib.homeManagerConfiguration {
+          pkgs = nixpkgs.legacyPackages.x86_64-linux;
+          extraSpecialArgs = {
+            inherit inputs outputs;
+          };
+          modules = [
+            { targets.genericLinux.enable = true; }
+            ./home-manager/home.nix
+            catppuccin.homeManagerModules.catppuccin
           ];
         };
       };

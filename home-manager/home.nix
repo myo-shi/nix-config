@@ -13,9 +13,10 @@
     # inputs.nix-colors.homeManagerModule
 
     # You can also split up your configuration and import pieces of it here:
-    # ./nvim.nix
-    ./alacritty.nix
-    ./tmux.nix
+    ./programs/nvim.nix
+    ./programs/alacritty.nix
+    ./programs/tmux.nix
+    ./programs/shell.nix
   ];
 
   nixpkgs = {
@@ -50,18 +51,26 @@
     homeDirectory = "/home/myo";
   };
 
-  # Add stuff for your user as you see fit:
   home.packages = with pkgs; [
-    tmux
+    gcc
     nixfmt-rfc-style
-    starship
-    # unstable.fnm
+
     cascadia-code
     fira-code
     fira-code-symbols
 
     hello_nix
     better-adb-sync
+
+    albert
+
+    fd
+    bat
+    vivid
+
+    nodejs_22
+    rustc
+    cargo
 
     # Patching nerdfonts
     (nerdfonts.override {
@@ -73,38 +82,24 @@
     })
   ];
 
-  # Enable home-manager and git
-  programs.home-manager.enable = true;
-  programs.git = {
-    enable = true;
-    userName = "myo";
-    userEmail = "myoshi.dev@gmail.com";
-    extraConfig = {
-      pull.rebase = true;
+  programs = {
+    home-manager = {
+      enable = true;
+    };
+
+    git = {
+      enable = true;
+      userName = "myo";
+      userEmail = "myoshi.dev@gmail.com";
+      extraConfig = {
+        pull.rebase = true;
+      };
     };
   };
 
-  programs.direnv = {
-    enable = true;
-    enableFishIntegration = true;
-    nix-direnv.enable = true;
-  };
-
-  # fnm settings
-  # xdg.configFile."fish/conf.d/fnm.fish" = {
-  #   text =
-  #     "fnm env --corepack-enabled"
-  #     + " --version-file-strategy=recursive"
-  #     + " --use-on-cd"
-  #     + " --resolve-engines"
-  #     + " | source";
-  # };
-
+  fonts.fontconfig.enable = true;
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
-
-  fonts.fontconfig.enable = true;
-
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
   home.stateVersion = "24.05";
 }

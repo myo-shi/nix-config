@@ -1,6 +1,6 @@
 { pkgs, lib, ... }:
 let
-  helpers = import ../helpers.nix {
+  helpers = import ../../helpers.nix {
     inherit pkgs;
     inherit lib;
   };
@@ -27,7 +27,7 @@ in
           family = "FiraCode Nerd Font";
           style = "Italic";
         };
-        size = 13.5;
+        size = 13;
         offset = {
           x = 1;
           y = 0;
@@ -43,5 +43,6 @@ in
         decorations = "full";
       };
     };
+    catppuccin.enable = true;
   };
 }
