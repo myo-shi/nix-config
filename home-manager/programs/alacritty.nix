@@ -43,6 +43,5 @@ in
         decorations = "full";
       };
     };
-    catppuccin.enable = true;
   };
 }

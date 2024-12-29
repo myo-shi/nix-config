@@ -50,13 +50,11 @@
       gshc = "git stash clear";
       gshs = "git stash show";
     };
-    catppuccin.enable = true;
   };
 
   programs.starship = {
     enable = true;
     settings = { };
-    catppuccin.enable = true;
   };
 
   programs.direnv = {
@@ -66,7 +64,6 @@
 
   programs.bat = {
     enable = true;
-    catppuccin.enable = true;
   };
 
   programs.eza = {
