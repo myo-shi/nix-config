@@ -11,7 +11,7 @@ in
     package = (helpers.nixGLMesaWrap pkgs.alacritty);
     settings = {
       env.TERM = "xterm-256color";
-      shell = {
+      terminal.shell = {
         program = "tmux";
       };
       font = {
