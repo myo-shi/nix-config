@@ -13,7 +13,7 @@ pkgs.mkShell {
 
   shellHook = ''
     . "${pkgs.asdf-vm}/share/asdf-vm/asdf.sh"
-    export EDITOR=nvim
+    EDITOR=nvim
 
     asdf_plugin_list=$(asdf plugin list)
 

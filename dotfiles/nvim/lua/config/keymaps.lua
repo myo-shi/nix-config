@@ -51,5 +51,13 @@ if vim.g.vscode then
   set({ "n" }, "<C-w><S-o>", function()
     vscode.action("workbench.action.closeEditorsInOtherGroups")
   end)
+  set({ "i", "s" }, "<Tab>", function(fallback)
+    local copilot = require("copilot.suggestion")
+    if copilot.is_visible() then
+      copilot.accept()
+    else
+      fallback()
+    end
+  end)
 end
 -- Add any additional keymaps here
