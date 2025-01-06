@@ -1,9 +1,10 @@
 # This is your home-manager configuration file
 # Use this to configure your home environment (it replaces ~/.config/nixpkgs/home.nix)
 {
-  inputs,
   pkgs,
   outputs,
+  config,
+  nixgl,
   ...
 }:
 {
@@ -28,8 +29,7 @@
       outputs.overlays.unstable-packages
       # If you want to use overlays exported from other flakes:
       # neovim-nightly-overlay.overlays.default
-      inputs.nixgl.overlay
-
+      #
       # Or define it inline, for example:
       # (final: prev: {
       #   hi = final.hello.overrideAttrs (oldAttrs: {
@@ -45,6 +45,8 @@
       allowUnfreePredicate = _: true;
     };
   };
+
+  nixGL.packages = nixgl.packages;
 
   home = {
     username = "myo";
@@ -72,14 +74,13 @@
     rustc
     cargo
 
-    # Patching nerdfonts
-    (nerdfonts.override {
-      fonts = [
-        "CascadiaCode"
-        "FiraCode"
-        "JetBrainsMono"
-      ];
-    })
+    unstable.dwt1-shell-color-scripts
+    gh
+
+    nerd-fonts.caskaydia-cove
+    nerd-fonts.fira-code
+    nerd-fonts.jetbrains-mono
+
   ];
 
   programs = {
@@ -95,6 +96,40 @@
         pull.rebase = true;
       };
     };
+
+    ghostty = {
+      enable = true;
+      enableFishIntegration = true;
+      package = config.lib.nixGL.wrap pkgs.ghostty;
+      settings = {
+        theme = "catppuccin-mocha";
+        window-theme = "ghostty";
+        background-opacity = 0.9;
+        background-blur-radius = 20;
+        gtk-tabs-location = "bottom";
+        gtk-titlebar = false;
+        window-padding-x = 8;
+        window-padding-y = 8;
+        window-padding-balance = true;
+        keybind = [
+          "ctrl+a>t=new_tab"
+          "ctrl+a>n=next_tab"
+          "ctrl+a>p=previous_tab"
+          "ctrl+a>shift+t=toggle_tab_overview"
+
+          "ctrl+a>shift+\=new_split:right"
+          "ctrl+a>-=new_split:down"
+
+          "ctrl+a>h=goto_split:left"
+          "ctrl+a>j=goto_split:bottom"
+          "ctrl+a>l=goto_split:right"
+          "ctrl+a>k=goto_split:top"
+
+          "ctrl+shift+h=resize_split:left,40"
+          "ctrl+shift+l=resize_split:right,40"
+        ];
+      };
+    };
   };
 
   catppuccin = {
@@ -108,5 +143,5 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "24.05";
+  home.stateVersion = "25.05";
 }

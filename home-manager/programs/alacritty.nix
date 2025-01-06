@@ -1,14 +1,12 @@
-{ pkgs, lib, ... }:
-let
-  helpers = import ../../helpers.nix {
-    inherit pkgs;
-    inherit lib;
-  };
-in
+{
+  pkgs,
+  config,
+  ...
+}:
 {
   programs.alacritty = {
     enable = true;
-    package = (helpers.nixGLMesaWrap pkgs.alacritty);
+    package = (config.lib.nixGL.wrap pkgs.alacritty);
     settings = {
       env.TERM = "xterm-256color";
       terminal.shell = {
