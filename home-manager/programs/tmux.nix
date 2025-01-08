@@ -1,4 +1,4 @@
-{ pkgs, config, ... }:
+{ pkgs, ... }:
 {
   home.file.".tmux/plugins/tpm" = {
     source = builtins.fetchGit {

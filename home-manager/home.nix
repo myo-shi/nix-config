@@ -18,6 +18,7 @@
     ./programs/alacritty.nix
     ./programs/tmux.nix
     ./programs/shell.nix
+    ./programs/gnome-extensions/run-or-raise.nix
   ];
 
   nixpkgs = {
@@ -129,6 +130,14 @@
           "ctrl+shift+l=resize_split:right,40"
         ];
       };
+    };
+
+    gnome-shell = {
+      enable = true;
+      extensions = [
+        { package = pkgs.gnomeExtensions.run-or-raise; }
+        { package = pkgs.gnomeExtensions.blur-my-shell; }
+      ];
     };
   };
 
