@@ -31,6 +31,7 @@
       b = "bat";
       l = "ls";
       g = "git";
+      gw = "git switch";
       gs = "git status";
       ga = "git add";
       gc = "git commit";
@@ -43,12 +44,12 @@
       gco = "git checkout";
       gcl = "git clone";
       gcp = "git cherry-pick";
-      gsh = "git stash";
-      gshp = "git stash pop";
-      gshl = "git stash list";
-      gshd = "git stash drop";
-      gshc = "git stash clear";
-      gshs = "git stash show";
+      gt = "git stash";
+      gtp = "git stash pop";
+      gtl = "git stash list";
+      gtd = "git stash drop";
+      gtc = "git stash clear";
+      gts = "git stash show";
     };
   };
 

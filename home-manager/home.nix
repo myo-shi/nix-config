@@ -112,7 +112,7 @@
         window-padding-y = 8;
         window-padding-balance = true;
         keybind = [
-          "ctrl+a>t=new_tab"
+          "ctrl+a>c=new_tab"
           "ctrl+a>n=next_tab"
           "ctrl+a>p=previous_tab"
           "ctrl+a>shift+t=toggle_tab_overview"
