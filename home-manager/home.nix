@@ -104,7 +104,7 @@
       settings = {
         theme = "catppuccin-mocha";
         window-theme = "ghostty";
-        background-opacity = 0.9;
+        background-opacity = 0.95;
         background-blur-radius = 20;
         gtk-tabs-location = "bottom";
         gtk-titlebar = false;
@@ -117,7 +117,7 @@
           "ctrl+a>p=previous_tab"
           "ctrl+a>shift+t=toggle_tab_overview"
 
-          "ctrl+a>shift+\=new_split:right"
+          "ctrl+a>shift+\\=new_split:right"
           "ctrl+a>-=new_split:down"
 
           "ctrl+a>h=goto_split:left"
