@@ -1,10 +1,8 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
-local map = LazyVim.safe_keymap_set
-
-map("t", "<C-\\>", "<C-\\><C-n>", { noremap = true })
-
+-- APIs
+-- https://github.com/vscode-neovim/vscode-neovim?tab=readme-ov-file#%EF%B8%8F-api
 if vim.g.vscode then
   -- VSCode Neovim
   local vscode = require("vscode")
@@ -51,13 +49,12 @@ if vim.g.vscode then
   set({ "n" }, "<C-w><S-o>", function()
     vscode.action("workbench.action.closeEditorsInOtherGroups")
   end)
-  set({ "i", "s" }, "<Tab>", function(fallback)
-    local copilot = require("copilot.suggestion")
-    if copilot.is_visible() then
-      copilot.accept()
-    else
-      fallback()
-    end
+  -- undo/REDO via vscode
+  -- https://github.com/vscode-neovim/vscode-neovim/issues/1139
+  set("n", "u", function()
+    vscode.call("undo")
+  end)
+  set("n", "<C-r>", function()
+    vscode.call("redo")
   end)
 end
--- Add any additional keymaps here

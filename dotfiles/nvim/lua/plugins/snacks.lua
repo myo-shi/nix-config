@@ -1,8 +1,8 @@
 return {
   "snacks.nvim",
   opts = {
-
     dashboard = {
+      enabled = not vim.g.vscode,
       -- dashboard configuration
       preset = {
         header = [[

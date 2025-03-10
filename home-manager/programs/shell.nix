@@ -35,7 +35,8 @@
       gs = "git status";
       ga = "git add";
       gc = "git commit";
-      gp = "git push";
+      gp = "git pull";
+      gpp = "git push";
       gd = "git diff";
       gl = "git log";
       gr = "git rebase";
@@ -50,6 +51,9 @@
       gtd = "git stash drop";
       gtc = "git stash clear";
       gts = "git stash show";
+      # florida
+      ty = "npm run typecheck";
+      co = "npm run commit";
     };
   };
 

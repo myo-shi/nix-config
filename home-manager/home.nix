@@ -66,6 +66,7 @@
     better-adb-sync
 
     albert
+    wl-clipboard
 
     fd
     bat
@@ -81,7 +82,7 @@
     nerd-fonts.caskaydia-cove
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
-
+    monaspace
   ];
 
   programs = {
@@ -133,7 +134,7 @@
     };
 
     gnome-shell = {
-      enable = true;
+      enable = false;
       extensions = [
         { package = pkgs.gnomeExtensions.run-or-raise; }
         { package = pkgs.gnomeExtensions.blur-my-shell; }
