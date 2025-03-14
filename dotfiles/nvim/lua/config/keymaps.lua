@@ -35,7 +35,7 @@ if vim.g.vscode then
   set({ "n" }, "]e", function()
     vscode.action("editor.action.marker.prev")
   end)
-  set({ "x", "i" }, "<C-d>", function()
+  set({ "n", "x", "i" }, "<A-d>", function()
     vscode.with_insert(function()
       vscode.action("editor.action.addSelectionToNextFindMatch")
     end)
@@ -57,8 +57,12 @@ if vim.g.vscode then
   set("n", "<C-r>", function()
     vscode.call("redo")
   end)
-
- set("n", "<C-/>", function()
+  set("n", "<C-/>", function()
     vscode.call("workbench.action.terminal.toggleTerminal")
+  end)
+  set({ "n", "x" }, "<leader>r", function()
+    vscode.with_insert(function()
+      vscode.action("editor.action.refactor")
+    end)
   end)
 end

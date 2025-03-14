@@ -56,7 +56,6 @@
   };
 
   home.packages = with pkgs; [
-    gcc
     nixfmt-rfc-style
 
     cascadia-code
