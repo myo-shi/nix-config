@@ -5,6 +5,7 @@
   outputs,
   config,
   nixgl,
+  nixpkgs-for-neovim,
   ...
 }:
 {

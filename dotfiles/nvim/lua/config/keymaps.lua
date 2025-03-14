@@ -57,4 +57,8 @@ if vim.g.vscode then
   set("n", "<C-r>", function()
     vscode.call("redo")
   end)
+
+ set("n", "<C-/>", function()
+    vscode.call("workbench.action.terminal.toggleTerminal")
+  end)
 end
