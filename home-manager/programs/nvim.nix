@@ -22,7 +22,7 @@
           oldAttrs.buildInputs
           ++ (with pkgs; [
             libtermkey
-            libvterm
+            libvterm-neovim
             unibilium
             msgpack
             libuv
@@ -49,3 +49,4 @@
 
   programs.lazygit.enable = true;
 }
+

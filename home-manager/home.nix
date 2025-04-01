@@ -6,6 +6,7 @@
   config,
   nixgl,
   nixpkgs-for-neovim,
+  inputs,
   ...
 }:
 {
@@ -83,6 +84,8 @@
     nerd-fonts.fira-code
     nerd-fonts.jetbrains-mono
     monaspace
+
+    (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
   ];
 
   programs = {
@@ -142,8 +145,19 @@
     };
   };
 
+  xdg.desktopEntries.claude-desktop = {
+    name = "claude-desktop";
+    exec = "claude-desktop %u --no-sandbox --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-version=3  --enable-unsafe-swiftshader";
+    icon = "claude";
+    type = "Application";
+    terminal = false;
+    categories = [
+      "Office"
+      "Utility"
+    ];
+  };
+
   catppuccin = {
-    starship.enable = true;
     fish.enable = true;
     bat.enable = true;
     alacritty.enable = true;
