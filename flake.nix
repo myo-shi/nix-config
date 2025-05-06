@@ -49,6 +49,12 @@
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
+
+      makeHomeConfig = name: pkgs: modules: home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+        extraSpecialArgs = { inherit inputs outputs nixgl; };
+        inherit modules;
+      };
     in
     {
       # Your custom packages
@@ -90,34 +96,17 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "arch" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-          extraSpecialArgs = {
-            inherit inputs outputs nixgl;
-          };
-          # > Our main home-manager configuration file <
-          modules = [
-            { targets.genericLinux.enable = true; }
-            ./home-manager/home.nix
-            catppuccin.homeManagerModules.catppuccin
-          ];
-        };
+        "arch" = makeHomeConfig "arch" nixpkgs.legacyPackages.x86_64-linux [
+          { targets.genericLinux.enable = true; }
+          ./home-manager/home.nix
+          catppuccin.homeManagerModules.catppuccin
+        ];
 
-        "florida" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          extraSpecialArgs = {
-            inherit
-              inputs
-              outputs
-              nixgl
-              ;
-          };
-          modules = [
-            { targets.genericLinux.enable = true; }
-            ./home-manager/home.nix
-            catppuccin.homeModules.catppuccin
-          ];
-        };
+        "florida" = makeHomeConfig "florida" nixpkgs.legacyPackages.x86_64-linux [
+          { targets.genericLinux.enable = true; }
+          ./home-manager/home.nix
+          catppuccin.homeModules.catppuccin
+        ];
       };
     };
 }
