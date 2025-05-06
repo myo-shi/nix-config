@@ -49,4 +49,3 @@
 
   programs.lazygit.enable = true;
 }
-

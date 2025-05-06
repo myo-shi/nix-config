@@ -46,6 +46,7 @@
         "aarch64-darwin"
         "x86_64-darwin"
       ];
+
       # This is a function that generates an attribute by calling a function you
       # pass to it, with each system as an argument
       forAllSystems = nixpkgs.lib.genAttrs systems;
@@ -98,13 +99,13 @@
       homeConfigurations = {
         "arch" = makeHomeConfig "arch" nixpkgs.legacyPackages.x86_64-linux [
           { targets.genericLinux.enable = true; }
-          ./home-manager/home.nix
-          catppuccin.homeManagerModules.catppuccin
+          ./home-manager/home-linux.nix
+          catppuccin.homeModules.catppuccin
         ];
 
         "florida" = makeHomeConfig "florida" nixpkgs.legacyPackages.x86_64-linux [
           { targets.genericLinux.enable = true; }
-          ./home-manager/home.nix
+          ./home-manager/home-linux.nix
           catppuccin.homeModules.catppuccin
         ];
       };
