@@ -8,30 +8,30 @@
     enable = true;
     viAlias = false;
     vimAlias = true;
-    # package = pkgs.neovim-unwrapped;
-    package = (
-      pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
-        version = "0.9.5";
-        src = pkgs.fetchFromGitHub {
-          owner = "neovim";
-          repo = "neovim";
-          rev = "v0.9.5";
-          hash = "sha256-CcaBqA0yFCffNPmXOJTo8c9v1jrEBiqAl8CG5Dj5YxE=";
-        };
-        buildInputs =
-          oldAttrs.buildInputs
-          ++ (with pkgs; [
-            libtermkey
-            libvterm-neovim
-            unibilium
-            msgpack
-            libuv
-            luajit
-            tree-sitter
-            libmpack
-          ]);
-      })
-    );
+    package = pkgs.neovim-unwrapped;
+  #   package = (
+  #     pkgs.neovim-unwrapped.overrideAttrs (oldAttrs: {
+  #       version = "0.9.5";
+  #       src = pkgs.fetchFromGitHub {
+  #         owner = "neovim";
+  #         repo = "neovim";
+  #         rev = "v0.9.5";
+  #         hash = "sha256-CcaBqA0yFCffNPmXOJTo8c9v1jrEBiqAl8CG5Dj5YxE=";
+  #       };
+  #       buildInputs =
+  #         oldAttrs.buildInputs
+  #         ++ (with pkgs; [
+  #           libtermkey
+  #           libvterm-neovim
+  #           unibilium
+  #           msgpack
+  #           libuv
+  #           luajit
+  #           tree-sitter
+  #           libmpack
+  #         ]);
+  #     })
+  #   );
   };
 
   xdg.configFile."nvim" = {
