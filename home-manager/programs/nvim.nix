@@ -46,6 +46,4 @@
   #   };
   #   recursive = true;
   # };
-
-  programs.lazygit.enable = true;
 }

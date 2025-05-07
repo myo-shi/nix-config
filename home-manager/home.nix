@@ -100,6 +100,7 @@
       extraConfig = {
         pull.rebase = true;
       };
+      delta.enable = true;
     };
 
     ghostty = {
@@ -112,7 +113,7 @@
         background-opacity = 0.95;
         background-blur-radius = 20;
         gtk-tabs-location = "bottom";
-        gtk-titlebar = false;
+        # gtk-titlebar = false;
         window-padding-x = 8;
         window-padding-y = 8;
         window-padding-balance = true;
@@ -136,13 +137,24 @@
       };
     };
 
-    gnome-shell = {
-      enable = false;
-      extensions = [
-        { package = pkgs.gnomeExtensions.run-or-raise; }
-        { package = pkgs.gnomeExtensions.blur-my-shell; }
-      ];
+    lazygit = {
+      enable = true;
+      settings = {
+        git.paging = {
+          colorArg = "always";
+          pager = "delta --dark --paging=never -s";
+        };
+      };
     };
+
+    # gnome-shell = {
+    #   enable = false;
+    #   extensions = [
+    #     { package = pkgs.gnomeExtensions.run-or-raise; }
+    #     { package = pkgs.gnomeExtensions.blur-my-shell; }
+    #   ];
+    # };
+
   };
 
   # xdg.desktopEntries.claude-desktop = {
@@ -161,6 +173,8 @@
     fish.enable = true;
     bat.enable = true;
     alacritty.enable = true;
+    lazygit.enable = true;
+    delta.enable = true;
   };
 
   fonts.fontconfig.enable = true;
