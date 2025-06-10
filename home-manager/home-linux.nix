@@ -13,7 +13,6 @@
     ./programs/gnome-extensions/run-or-raise.nix
   ];
 
-
   nixGL.packages = nixgl.packages;
 
   home = {
@@ -25,7 +24,7 @@
     albert
     wl-clipboard
 
-    (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
+    # (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
   ];
 
   programs = {

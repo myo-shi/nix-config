@@ -86,6 +86,7 @@
     monaspace
 
     # (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
+    wrangler
   ];
 
   programs = {
