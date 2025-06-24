@@ -51,6 +51,7 @@
       gtd = "git stash drop";
       gtc = "git stash clear";
       gts = "git stash show";
+      gfp = "git fetch --prune";
       # florida
       ty = "npm run typecheck";
       co = "npm run commit";
