@@ -26,6 +26,8 @@
       bind -M insert \cr _fzf_search_history
 
       set -x LS_COLORS (vivid generate catppuccin-macchiato)
+
+      set -gx PATH $HOME/.local/bin $PATH
     '';
     shellAbbrs = {
       b = "bat";
