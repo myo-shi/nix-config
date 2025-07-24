@@ -92,8 +92,6 @@
     # (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
     wrangler
 
-    ngrok
-
     claude-code
   ];
 
@@ -121,29 +119,40 @@
         window-theme = "ghostty";
         background-opacity = 0.95;
         background-blur-radius = 20;
-        gtk-tabs-location = "bottom";
-        # gtk-titlebar = false;
+        gtk-tabs-location = "hidden";
+        gtk-titlebar = false;
         window-padding-x = 8;
         window-padding-y = 8;
         window-padding-balance = true;
+        command = "tmux";
         keybind = [
-          "ctrl+a>c=new_tab"
-          "ctrl+a>n=next_tab"
-          "ctrl+a>p=previous_tab"
-          "ctrl+a>shift+t=toggle_tab_overview"
-
-          "ctrl+a>shift+\\=new_split:right"
-          "ctrl+a>-=new_split:down"
-
-          "ctrl+a>h=goto_split:left"
-          "ctrl+a>j=goto_split:bottom"
-          "ctrl+a>l=goto_split:right"
-          "ctrl+a>k=goto_split:top"
-
-          "ctrl+shift+h=resize_split:left,40"
-          "ctrl+shift+l=resize_split:right,40"
+          # "ctrl+a>c=new_tab"
+          # "ctrl+a>n=next_tab"
+          # "ctrl+a>p=previous_tab"
+          # "ctrl+a>shift+t=toggle_tab_overview"
+          #
+          # "ctrl+a>shift+\\=new_split:right"
+          # "ctrl+a>-=new_split:down"
+          #
+          # "ctrl+a>h=goto_split:left"
+          # "ctrl+a>j=goto_split:bottom"
+          # "ctrl+a>l=goto_split:right"
+          # "ctrl+a>k=goto_split:top"
+          #
+          # "ctrl+shift+h=resize_split:left,40"
+          # "ctrl+shift+l=resize_split:right,40"
         ];
       };
+    };
+
+    wezterm = {
+      enable = true;
+      package = (config.lib.nixGL.wrap pkgs.wezterm);
+      extraConfig = ''
+        return {
+         window_decorations = "TITLE | RESIZE"
+        }
+      '';
     };
 
     lazygit = {
