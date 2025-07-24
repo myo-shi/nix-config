@@ -49,6 +49,10 @@
     };
   };
 
+  nix.gc.automatic = true;
+  nix.gc.frequency = "Mon *-*-* 11:00:00";
+  nix.gc.options = "-d";
+
   # nixGL.packages = nixgl.packages;
 
   home = {
@@ -87,6 +91,10 @@
 
     # (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
     wrangler
+
+    ngrok
+
+    claude-code
   ];
 
   programs = {
