@@ -124,7 +124,14 @@
         window-padding-x = 8;
         window-padding-y = 8;
         window-padding-balance = true;
-        command = "tmux";
+        # command = "tmux";
+        command = "${pkgs.writeShellScript "tmux-launcher" ''
+          if tmux has-session 2>/dev/null; then
+            exec tmux attach
+          else
+            exec tmux new -s main
+          fi
+        ''}";
         keybind = [
           # "ctrl+a>c=new_tab"
           # "ctrl+a>n=next_tab"
