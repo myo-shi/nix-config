@@ -68,6 +68,7 @@
     fira-code-symbols
 
     hello_nix
+    android-tools
     better-adb-sync
 
     # albert
