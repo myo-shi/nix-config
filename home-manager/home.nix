@@ -50,7 +50,7 @@
   };
 
   nix.gc.automatic = true;
-  nix.gc.frequency = "Mon *-*-* 11:00:00";
+  nix.gc.dates = "Mon *-*-* 11:00:00";
   nix.gc.options = "-d";
 
   # nixGL.packages = nixgl.packages;
@@ -173,6 +173,10 @@
       };
     };
 
+    sherlock = {
+      enable = true;
+    };
+
     # gnome-shell = {
     #   enable = false;
     #   extensions = [
@@ -207,5 +211,5 @@
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.05";
+  home.stateVersion = "25.11";
 }
