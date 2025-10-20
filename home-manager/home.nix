@@ -116,7 +116,7 @@
       enableFishIntegration = true;
       package = config.lib.nixGL.wrap pkgs.ghostty;
       settings = {
-        theme = "catppuccin-mocha";
+        theme = "TokyoNight";
         window-theme = "ghostty";
         background-opacity = 0.95;
         background-blur-radius = 20;
