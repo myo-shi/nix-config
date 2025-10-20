@@ -103,12 +103,20 @@
 
     git = {
       enable = true;
-      userName = "myo";
-      userEmail = "myoshi.dev@gmail.com";
-      extraConfig = {
-        pull.rebase = true;
+      settings = {
+        user = {
+          name = "myo";
+          email = "myoshi.dev@gmail.com";
+        };
+        extraConfig = {
+          pull.rebase = true;
+        };
       };
-      delta.enable = true;
+    };
+
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
     };
 
     ghostty = {
