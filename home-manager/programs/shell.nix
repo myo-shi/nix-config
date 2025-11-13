@@ -34,6 +34,8 @@
       l = "ls";
       g = "git";
       gw = "git switch";
+      gwd = "git switch develop";
+      gw- = "git switch -";
       gs = "git status";
       ga = "git add";
       gc = "git commit";
