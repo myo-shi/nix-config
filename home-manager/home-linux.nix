@@ -13,7 +13,14 @@
     ./programs/gnome-extensions/run-or-raise.nix
   ];
 
-  nixGL.packages = nixgl.packages;
+  targets = {
+    genericLinux = {
+      enable = true;
+      nixGL = {
+        packages = nixgl.packages;
+      };
+    };
+  };
 
   home = {
     username = "myo";
