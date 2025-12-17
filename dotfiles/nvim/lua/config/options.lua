@@ -4,7 +4,7 @@
 --
 if vim.g.vscode then
   -- VSCode Neovim
-  vim.opt.clipboard:append("unnamedplus")
+  vim.opt.clipboard = { "unnamedplus" }
   local vscode = require("vscode")
   vim.notify = vscode.notify
 end
