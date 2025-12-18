@@ -48,18 +48,26 @@
     };
   };
 
-  xdg.desktopEntries.claude-desktop = {
-    name = "claude-desktop";
-    exec = "claude-desktop %u --no-sandbox --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-version=3  --enable-unsafe-swiftshader";
-    icon = "claude";
-    type = "Application";
-    terminal = false;
-    categories = [
-      "Office"
-      "Utility"
-    ];
-  };
+  # gnome-shell = {
+  #   enable = false;
+  #   extensions = [
+  #     { package = pkgs.gnomeExtensions.run-or-raise; }
+  #     { package = pkgs.gnomeExtensions.blur-my-shell; }
+  #   ];
+  # };
 
+  # xdg.desktopEntries.claude-desktop = {
+  #   name = "claude-desktop";
+  #   exec = "claude-desktop %u --no-sandbox --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-version=3  --enable-unsafe-swiftshader";
+  #   icon = "claude";
+  #   type = "Application";
+  #   terminal = false;
+  #   categories = [
+  #     "Office"
+  #     "Utility"
+  #   ];
+  # };
+  #
   catppuccin = {
     fish.enable = true;
     bat.enable = true;

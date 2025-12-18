@@ -53,8 +53,6 @@
   nix.gc.dates = "Mon *-*-* 11:00:00";
   nix.gc.options = "-d";
 
-  # nixGL.packages = nixgl.packages;
-
   home = {
     username = "myo";
     homeDirectory = "/home/myo";
@@ -78,7 +76,7 @@
     bat
     vivid
 
-    nodejs_22
+    nodejs
     rustc
     cargo
 
@@ -90,7 +88,6 @@
     nerd-fonts.jetbrains-mono
     monaspace
 
-    # (config.lib.nixGL.wrap inputs.claude-desktop.packages.${system}.claude-desktop)
     wrangler
 
     claude-code
@@ -133,7 +130,6 @@
         window-padding-x = 8;
         window-padding-y = 8;
         window-padding-balance = true;
-        # command = "tmux";
         command = "${pkgs.writeShellScript "tmux-launcher" ''
           if tmux has-session 2>/dev/null; then
             exec tmux attach
@@ -187,27 +183,7 @@
       enable = true;
     };
 
-    # gnome-shell = {
-    #   enable = false;
-    #   extensions = [
-    #     { package = pkgs.gnomeExtensions.run-or-raise; }
-    #     { package = pkgs.gnomeExtensions.blur-my-shell; }
-    #   ];
-    # };
-
   };
-
-  # xdg.desktopEntries.claude-desktop = {
-  #   name = "claude-desktop";
-  #   exec = "claude-desktop %u --no-sandbox --ozone-platform-hint=auto --enable-wayland-ime --wayland-text-input-version=3  --enable-unsafe-swiftshader";
-  #   icon = "claude";
-  #   type = "Application";
-  #   terminal = false;
-  #   categories = [
-  #     "Office"
-  #     "Utility"
-  #   ];
-  # };
 
   catppuccin = {
     fish.enable = true;
