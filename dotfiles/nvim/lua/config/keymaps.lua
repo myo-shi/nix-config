@@ -49,14 +49,6 @@ if vim.g.vscode then
   set({ "n" }, "<C-w><S-o>", function()
     vscode.action("workbench.action.closeEditorsInOtherGroups")
   end)
-  -- undo/REDO via vscode
-  -- https://github.com/vscode-neovim/vscode-neovim/issues/1139
-  set("n", "u", function()
-    vscode.call("undo")
-  end)
-  set("n", "<C-r>", function()
-    vscode.call("redo")
-  end)
   set("n", "<C-/>", function()
     vscode.call("workbench.action.terminal.toggleTerminal")
   end)
@@ -65,4 +57,12 @@ if vim.g.vscode then
       vscode.action("editor.action.refactor")
     end)
   end)
+  -- undo/REDO via vscode
+  -- https://github.com/vscode-neovim/vscode-neovim/issues/1139
+  -- set("n", "u", function()
+  --   vscode.call("undo")
+  -- end)
+  -- set("n", "<C-r>", function()
+  --   vscode.call("redo")
+  -- end)
 end
