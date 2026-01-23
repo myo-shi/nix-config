@@ -76,7 +76,8 @@
     bat
     vivid
 
-    nodejs
+    nodejs_24
+    pnpm
     rustc
     cargo
 
@@ -91,6 +92,9 @@
     wrangler
 
     claude-code
+    github-copilot-cli
+    codex
+    opencode
   ];
 
   programs = {
