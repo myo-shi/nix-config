@@ -89,9 +89,9 @@
     nerd-fonts.jetbrains-mono
     monaspace
 
-    wrangler
+    # wrangler
 
-    claude-code
+    # claude-code
     github-copilot-cli
     codex
     opencode
