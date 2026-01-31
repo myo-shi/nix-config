@@ -53,6 +53,16 @@
   nix.gc.dates = "Mon *-*-* 11:00:00";
   nix.gc.options = "-d";
 
+  services = {
+    home-manager.autoUpgrade = {
+      enable = true;
+      useFlake = true;
+      flakeDir = "/home/myo/workspace/nix-config#arch";
+      frequency = "daily";
+    };
+
+  };
+
   home = {
     username = "myo";
     homeDirectory = "/home/myo";
