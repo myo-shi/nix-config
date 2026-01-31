@@ -52,7 +52,7 @@
       forAllSystems = nixpkgs.lib.genAttrs systems;
 
       makeHomeConfig =
-        name: pkgs: modules:
+        pkgs: modules:
         home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = { inherit inputs outputs nixgl; };
@@ -99,13 +99,18 @@
       # Standalone home-manager configuration entrypoint
       # Available through 'home-manager --flake .#your-username@your-hostname'
       homeConfigurations = {
-        "arch" = makeHomeConfig "arch" nixpkgs.legacyPackages.x86_64-linux [
+        "arch" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
           { targets.genericLinux.enable = true; }
           ./home-manager/home-linux.nix
           catppuccin.homeModules.catppuccin
         ];
 
-        "florida" = makeHomeConfig "florida" nixpkgs.legacyPackages.x86_64-linux [
+        "florida" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
+          { targets.genericLinux.enable = true; }
+          ./home-manager/home-linux.nix
+          catppuccin.homeModules.catppuccin
+        ];
+        "myo@ohio" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
           { targets.genericLinux.enable = true; }
           ./home-manager/home-linux.nix
           catppuccin.homeModules.catppuccin
