@@ -77,10 +77,10 @@
               end
           end
 
-          systemd-inhibit --what=idle \
-              --who="manual-block" \
-              --why="user requested inhibit" \
-              bash -c "sleep infinity" &
+          systemd-inhibit --what=idle:sleep \
+            --who="manual-block" \
+            --why="user requested inhibit" \
+            bash -c "sleep infinity" &
 
           set -l pid $last_pid
           echo $pid > $pidfile
