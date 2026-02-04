@@ -56,9 +56,9 @@ return {
       vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
     end,
   },
-  { "rhart92/codex.nvim", opts = {
-    split = "vertical",
-  } },
+  -- { "rhart92/codex.nvim", opts = {
+  --   split = "vertical",
+  -- } },
   -- {
   --   "ishiooon/codex.nvim",
   --   dependencies = { "folke/snacks.nvim" },
