@@ -74,7 +74,8 @@ in
   };
 
   home.packages = with pkgs; [
-    nixfmt-rfc-style
+    nixfmt
+    statix
 
     cascadia-code
     fira-code
@@ -147,15 +148,18 @@ in
         copy-on-select = "clipboard";
         theme = "TokyoNight";
         window-theme = "ghostty";
+        window-show-tab-bar = "always";
         background-opacity = 1;
         gtk-tabs-location = "bottom";
-        gtk-titlebar = true;
-        gtk-titlebar-style = "tabs";
+        gtk-titlebar = false;
+        # gtk-titlebar-style = "tabs";
         gtk-toolbar-style = "flat";
         mouse-hide-while-typing = true;
         mouse-scroll-multiplier = 1;
         window-padding-x = 8;
         window-padding-y = 8;
+        window-height = 60;
+        window-width = 180;
         window-padding-balance = true;
         # command = "${pkgs.writeShellScript "tmux-launcher" ''
         #   if tmux has-session 2>/dev/null; then
