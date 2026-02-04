@@ -147,10 +147,13 @@ in
         copy-on-select = "clipboard";
         theme = "TokyoNight";
         window-theme = "ghostty";
-        background-opacity = 0.95;
-        background-blur-radius = 20;
-        gtk-tabs-location = "hidden";
+        background-opacity = 1;
+        gtk-tabs-location = "bottom";
         gtk-titlebar = true;
+        gtk-titlebar-style = "tabs";
+        gtk-toolbar-style = "flat";
+        mouse-hide-while-typing = true;
+        mouse-scroll-multiplier = 1;
         window-padding-x = 8;
         window-padding-y = 8;
         window-padding-balance = true;
@@ -193,7 +196,12 @@ in
 
     lazygit = {
       enable = true;
+      enableFishIntegration = true;
       settings = {
+        os = {
+          editCommand = "nvim";
+          editCommandTemplate = "{{editor}} --server $NVIM --remote-tab {{filename}}";
+        };
         git.pagers = [
           {
             colorArg = "always";
