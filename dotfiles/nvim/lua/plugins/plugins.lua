@@ -56,4 +56,23 @@ return {
       vim.keymap.set("n", "-", "<C-x>", { desc = "Decrement under cursor", noremap = true })
     end,
   },
+  { "rhart92/codex.nvim", opts = {
+    split = "vertical",
+  } },
+  -- {
+  --   "ishiooon/codex.nvim",
+  --   dependencies = { "folke/snacks.nvim" },
+  --   config = true,
+  --   keys = {
+  --     { "<leader>acc", "<cmd>Codex<cr>", desc = "Codex: Toggle" },
+  --     { "<leader>acf", "<cmd>CodexFocus<cr>", desc = "Codex: Focus" },
+  --     { "<leader>acs", "<cmd>CodexSend<cr>", mode = "v", desc = "Codex: Send selection" },
+  --     {
+  --       "<leader>acs",
+  --       "<cmd>CodexTreeAdd<cr>",
+  --       desc = "Codex: Add file",
+  --       ft = { "neo-tree", "oil" },
+  --     },
+  --   },
+  -- },
 }
