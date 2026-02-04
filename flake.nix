@@ -2,6 +2,7 @@
   description = "Your new nix config";
 
   inputs = {
+    flake-utils.url = "github:numtide/flake-utils";
     # Nixpkgs
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nixpkgs-unstable.url = "github:nixos/nixpkgs/nixpkgs-unstable";
@@ -18,11 +19,8 @@
     };
 
     catppuccin.url = "github:catppuccin/nix";
-
-    flake-utils.url = "github:numtide/flake-utils";
-    # claude-desktop.url = "github:k3d3/claude-desktop-linux-flake";
-    # claude-desktop.inputs.nixpkgs.follows = "nixpkgs";
-    # claude-desktop.inputs.flake-utils.follows = "flake-utils";
+    ghostty.url = "github:ghostty-org/ghostty";
+    codex.url = "github:openai/codex";
   };
 
   outputs =
@@ -40,11 +38,11 @@
       inherit (self) outputs;
       # Supported systems for your flake packages, shell, etc.
       systems = [
-        "aarch64-linux"
-        "i686-linux"
+        # "aarch64-linux"
+        # "i686-linux"
         "x86_64-linux"
         "aarch64-darwin"
-        "x86_64-darwin"
+        # "x86_64-darwin"
       ];
 
       # This is a function that generates an attribute by calling a function you

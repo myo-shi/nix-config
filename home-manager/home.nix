@@ -9,6 +9,11 @@
   inputs,
   ...
 }:
+let
+  system = pkgs.stdenv.hostPlatform.system;
+  ghosttyPkg = inputs.ghostty.packages.${system}.default;
+  codexPkg = inputs.codex.packages.${system}.default;
+in
 {
   # You can import other home-manager modules here
   imports = [
@@ -104,6 +109,7 @@
     # claude-code
     github-copilot-cli
     codex
+    #codexPkg
     opencode
   ];
 
@@ -133,40 +139,44 @@
     ghostty = {
       enable = true;
       enableFishIntegration = true;
-      package = config.lib.nixGL.wrap pkgs.ghostty;
+      # package = config.lib.nixGL.wrap pkgs.ghostty;
+      package = config.lib.nixGL.wrap ghosttyPkg;
       settings = {
+        clipboard-read = "allow";
+        clipboard-write = "allow";
+        copy-on-select = "clipboard";
         theme = "TokyoNight";
         window-theme = "ghostty";
         background-opacity = 0.95;
         background-blur-radius = 20;
         gtk-tabs-location = "hidden";
-        gtk-titlebar = false;
+        gtk-titlebar = true;
         window-padding-x = 8;
         window-padding-y = 8;
         window-padding-balance = true;
-        command = "${pkgs.writeShellScript "tmux-launcher" ''
-          if tmux has-session 2>/dev/null; then
-            exec tmux attach
-          else
-            exec tmux new -s main
-          fi
-        ''}";
+        # command = "${pkgs.writeShellScript "tmux-launcher" ''
+        #   if tmux has-session 2>/dev/null; then
+        #     exec tmux attach
+        #   else
+        #     exec tmux new -s main
+        #   fi
+        # ''}";
         keybind = [
-          # "ctrl+a>c=new_tab"
-          # "ctrl+a>n=next_tab"
-          # "ctrl+a>p=previous_tab"
-          # "ctrl+a>shift+t=toggle_tab_overview"
-          #
-          # "ctrl+a>shift+\\=new_split:right"
-          # "ctrl+a>-=new_split:down"
-          #
-          # "ctrl+a>h=goto_split:left"
-          # "ctrl+a>j=goto_split:bottom"
-          # "ctrl+a>l=goto_split:right"
-          # "ctrl+a>k=goto_split:top"
-          #
-          # "ctrl+shift+h=resize_split:left,40"
-          # "ctrl+shift+l=resize_split:right,40"
+          "ctrl+a>c=new_tab"
+          "ctrl+a>n=next_tab"
+          "ctrl+a>p=previous_tab"
+          "ctrl+a>shift+t=toggle_tab_overview"
+
+          "ctrl+a>shift+\\=new_split:right"
+          "ctrl+a>-=new_split:down"
+
+          "ctrl+a>h=goto_split:left"
+          "ctrl+a>j=goto_split:bottom"
+          "ctrl+a>l=goto_split:right"
+          "ctrl+a>k=goto_split:top"
+
+          "ctrl+shift+h=resize_split:left,40"
+          "ctrl+shift+l=resize_split:right,40"
         ];
       };
     };
