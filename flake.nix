@@ -108,7 +108,7 @@
           ./home-manager/home-linux.nix
           catppuccin.homeModules.catppuccin
         ];
-        "myo@ohio" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
+        "myo@ohio-eos" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
           { targets.genericLinux.enable = true; }
           ./home-manager/home-linux.nix
           catppuccin.homeModules.catppuccin
