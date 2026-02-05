@@ -55,7 +55,7 @@ in
   };
 
   nix.gc.automatic = true;
-  nix.gc.dates = "Mon *-*-* 11:00:00";
+  nix.gc.dates = "*-*-* 11:00:00";
   nix.gc.options = "-d";
 
   services = {
