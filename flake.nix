@@ -103,7 +103,7 @@
           catppuccin.homeModules.catppuccin
         ];
 
-        "florida" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
+        "myo@florida-ubuntu" = makeHomeConfig nixpkgs.legacyPackages.x86_64-linux [
           { targets.genericLinux.enable = true; }
           ./home-manager/home-linux.nix
           catppuccin.homeModules.catppuccin
