@@ -161,6 +161,7 @@ in
         window-height = 60;
         window-width = 180;
         window-padding-balance = true;
+        shell-integration-features = "ssh-terminfo,ssh-env";
         # command = "${pkgs.writeShellScript "tmux-launcher" ''
         #   if tmux has-session 2>/dev/null; then
         #     exec tmux attach
@@ -217,6 +218,11 @@ in
 
     sherlock = {
       enable = true;
+    };
+
+    yazi = {
+      enable = true;
+      enableFishIntegration = true;
     };
 
   };
