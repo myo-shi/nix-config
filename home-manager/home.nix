@@ -8,9 +8,8 @@
   ...
 }:
 let
-  system = pkgs.stdenv.hostPlatform.system;
-  ghosttyPkg = inputs.ghostty.packages.${system}.default;
-  codexPkg = inputs.codex.packages.${system}.default;
+  ghosttyPkg = inputs.ghostty.packages.${pkgs.system}.default;
+  codexPkg = inputs.codex-cli-nix.packages.${pkgs.system}.default;
 in
 {
   # You can import other home-manager modules here
@@ -111,9 +110,8 @@ in
 
     claude-code
     github-copilot-cli
-    codex
-    #codexPkg
     opencode
+    codexPkg
   ];
 
   programs = {
