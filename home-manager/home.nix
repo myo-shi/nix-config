@@ -4,8 +4,6 @@
   pkgs,
   outputs,
   config,
-  nixgl,
-  nixpkgs-for-neovim,
   inputs,
   ...
 }:
@@ -54,9 +52,13 @@ in
     };
   };
 
-  nix.gc.automatic = true;
-  nix.gc.dates = "*-*-* 11:00:00";
-  nix.gc.options = "-d";
+  nix = {
+    gc = {
+      automatic = true;
+      dates = "*-*-* 11:00:00";
+      options = "-d";
+    };
+  };
 
   services = {
     home-manager.autoUpgrade = {
@@ -107,7 +109,7 @@ in
 
     # wrangler
 
-    # claude-code
+    claude-code
     github-copilot-cli
     codex
     #codexPkg
@@ -191,7 +193,7 @@ in
 
     wezterm = {
       enable = true;
-      package = (config.lib.nixGL.wrap pkgs.wezterm);
+      package = config.lib.nixGL.wrap pkgs.wezterm;
       extraConfig = ''
         return {
          window_decorations = "TITLE | RESIZE"

@@ -21,6 +21,7 @@
     catppuccin.url = "github:catppuccin/nix";
     ghostty.url = "github:ghostty-org/ghostty";
     codex.url = "github:openai/codex";
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs =
@@ -86,9 +87,11 @@
           modules = [
             home-manager.darwinModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.users.myo = import ./home-manager/home.nix;
+              home-manager = {
+                useGlobalPkgs = true;
+                manager.useUserPackages = true;
+                manager.users.myo = import ./home-manager/home.nix;
+              };
             }
           ];
         };
