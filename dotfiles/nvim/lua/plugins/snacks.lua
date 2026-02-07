@@ -1,6 +1,11 @@
 return {
   "snacks.nvim",
   opts = {
+    ---@class snacks.picker.Config
+    picker = {
+      hidden = true,
+      ignore = true,
+    },
     ---@class snacks.dashboard.Config
     dashboard = {
       enabled = not vim.g.vscode,
