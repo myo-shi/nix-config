@@ -10,6 +10,7 @@
 let
   ghosttyPkg = inputs.ghostty.packages.${pkgs.system}.default;
   codexPkg = inputs.codex-cli-nix.packages.${pkgs.system}.default;
+  workmuxPkg = inputs.workmux.packages.${pkgs.system}.default;
 in
 {
   # You can import other home-manager modules here
@@ -63,7 +64,7 @@ in
     home-manager.autoUpgrade = {
       enable = true;
       useFlake = true;
-      flakeDir = "/home/myo/workspace/nix-config#arch";
+      flakeDir = "/home/myo/workspace/nix-config";
       frequency = "daily";
     };
 
@@ -112,6 +113,8 @@ in
     github-copilot-cli
     opencode
     codexPkg
+
+    workmuxPkg
   ];
 
   programs = {
@@ -226,6 +229,15 @@ in
     };
 
   };
+
+  xdg.configFile."workmux/config.yaml".text = ''
+    merge_strategy: rebase
+    agent: codex
+    panes:
+      - command: <agent>
+        focus: true
+      - split: horizontal
+  '';
 
   catppuccin = {
     fish.enable = true;

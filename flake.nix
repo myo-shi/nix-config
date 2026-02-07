@@ -22,6 +22,7 @@
     ghostty.url = "github:ghostty-org/ghostty";
     codex-cli-nix.url = "github:sadjow/codex-cli-nix/pull/64/head";
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+    workmux.url = "github:raine/workmux";
   };
 
   outputs =
