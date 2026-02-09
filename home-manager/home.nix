@@ -146,6 +146,8 @@ in
       # package = config.lib.nixGL.wrap pkgs.ghostty;
       package = config.lib.nixGL.wrap ghosttyPkg;
       settings = {
+        adjust-cell-height = "20%";
+        adjust-cell-width = "3%";
         clipboard-read = "allow";
         clipboard-write = "allow";
         copy-on-select = "clipboard";
