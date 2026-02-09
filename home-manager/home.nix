@@ -228,9 +228,15 @@ in
       enableFishIntegration = true;
     };
 
+    # zellij = {
+    #   enable = true;
+    #   enableFishIntegration = true;
+    # };
+
   };
 
   xdg.configFile."workmux/config.yaml".text = ''
+    nerdfont: true
     merge_strategy: rebase
     agent: codex
     panes:
