@@ -26,6 +26,10 @@
       set -x LS_COLORS (vivid generate catppuccin-macchiato)
 
       set -gx PATH $HOME/.local/bin $PATH
+      set -gx EDITOR nvim
+      set -gx VISUAL nvim
+
+      mise activate fish | source
     '';
     shellAbbrs = {
       b = "bat";

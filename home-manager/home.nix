@@ -94,10 +94,12 @@ in
     bat
     vivid
 
-    nodejs_24
-    pnpm
+    # nodejs_24
+    # pnpm
     rustc
     cargo
+
+    mise
 
     unstable.dwt1-shell-color-scripts
     gh
