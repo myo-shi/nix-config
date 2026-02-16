@@ -1,13 +1,14 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 
+local set = vim.keymap.set
+local del = vim.keymap.del
+
 -- APIs
 -- https://github.com/vscode-neovim/vscode-neovim?tab=readme-ov-file#%EF%B8%8F-api
 if vim.g.vscode then
   -- VSCode Neovim
   local vscode = require("vscode")
-  local set = vim.keymap.set
-  local del = vim.keymap.del
   -- local opts = { noremap = true, silent = true }
   set({ "n" }, "<leader>a", function()
     vscode.action("editor.action.quickFix")
