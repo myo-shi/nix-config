@@ -177,6 +177,7 @@ in
         #   fi
         # ''}";
         keybind = [
+          "ctrl+enter=toggle_fullscreen"
           "ctrl+a>c=new_tab"
           "ctrl+a>n=next_tab"
           "ctrl+a>p=previous_tab"
