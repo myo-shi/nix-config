@@ -150,6 +150,7 @@ in
       settings = {
         adjust-cell-height = "20%";
         adjust-cell-width = "3%";
+        bell-features = "system,audio,attention,title,border";
         clipboard-read = "allow";
         clipboard-write = "allow";
         copy-on-select = "clipboard";
@@ -177,7 +178,7 @@ in
         #   fi
         # ''}";
         keybind = [
-          "ctrl+enter=toggle_fullscreen"
+          "ctrl+enter=unbind"
           "ctrl+a>c=new_tab"
           "ctrl+a>n=next_tab"
           "ctrl+a>p=previous_tab"
