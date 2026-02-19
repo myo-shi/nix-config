@@ -90,6 +90,8 @@ in
     # albert
     # wl-clipboard
 
+    ripgrep
+    jq
     fd
     bat
     vivid
@@ -148,7 +150,7 @@ in
       # package = config.lib.nixGL.wrap pkgs.ghostty;
       package = config.lib.nixGL.wrap ghosttyPkg;
       settings = {
-        adjust-cell-height = "20%";
+        adjust-cell-height = "30%";
         adjust-cell-width = "3%";
         bell-features = "system,audio,attention,title,border";
         clipboard-read = "allow";
@@ -245,10 +247,19 @@ in
     nerdfont: true
     merge_strategy: rebase
     agent: codex
+    post_create:
+      - mise trust
     panes:
       - command: <agent>
         focus: true
       - split: horizontal
+    files:
+      copy:
+        - .env.local
+        - localhost-key.pem
+        - localhost.pem
+      symlink:
+        - node_modules
   '';
 
   catppuccin = {
@@ -263,5 +274,5 @@ in
   # Nicely reload system units when changing configs
   systemd.user.startServices = "sd-switch";
   # https://nixos.wiki/wiki/FAQ/When_do_I_update_stateVersion
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
 }
