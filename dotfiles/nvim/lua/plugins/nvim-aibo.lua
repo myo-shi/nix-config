@@ -1,7 +1,7 @@
 return {
   {
     "lambdalisue/nvim-aibo",
-    cmd = { "Aibo", "AiboSend", "AiboSendWithLocation", "AiboSendCode" },
+    cmd = { "Aibo", "AiboSend", "AiboSendPath", "AiboSendWithLocation", "AiboSendCode" },
     config = function()
       require("aibo").setup()
 
@@ -93,15 +93,15 @@ return {
         "<leader>ai",
         function()
           local width = math.floor(vim.o.columns * 2 / 5)
-          vim.cmd(string.format('Aibo -opener="%dvsplit" codex', width))
+          vim.cmd(string.format('Aibo -toggle -opener="%dvsplit" codex', width))
         end,
         mode = "n",
-        desc = "Open Codex",
+        desc = "Toggle Codex",
       },
-      { "<leader>ap", ":<C-u>AiboSendPath<CR>", mode = "v", desc = "Aibo: Send path only" },
-      { "<leader>al", ":<C-u>AiboSendWithLocation<CR>", mode = "v", desc = "Aibo: Send with location" },
-      { "<leader>ac", ":<C-u>AiboSendCode<CR>", mode = "v", desc = "Aibo: Send code with location" },
-      { "<leader>as", ":<C-u>AiboSend<CR>", mode = "v", desc = "Aibo: Send selection" },
+      { "<leader>ap", ":'<,'>AiboSendPath<CR>", mode = { "n", "v" }, desc = "Aibo: Send path only" },
+      { "<leader>al", ":'<,'>AiboSendWithLocation<CR>", mode = "v", desc = "Aibo: Send with location" },
+      { "<leader>ac", ":'<,'>AiboSendCode<CR>", mode = "v", desc = "Aibo: Send code with location" },
+      { "<leader>as", ":'<,'>AiboSend<CR>", mode = "v", desc = "Aibo: Send selection" },
       { "<S-Tab>", "<Plug>(aibo-send)<S-Tab>", mode = { "n", "i" }, desc = "Aibo: Send input" },
     },
   },
